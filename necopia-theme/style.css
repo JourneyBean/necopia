@@ -1,14 +1,16 @@
 /*
 Theme Name: Necopia
-Text Domain: necopia_theme
+Description: A modern theme for WordPress using Fluent Design.
 Version: 0.0.1_dev
 Requires at least: 4.7
+Tested up to: 5.5
 Requires PHP: 5.2.4
-Tags: blog, one-column, custom-background, custom-colors, custom-logo, custom-menu, editor-style, featured-images, footer-widgets, full-width-template, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready, block-styles, wide-blocks, accessibility-ready
+Text Domain: necopia_theme
+Domain Path: /languages
 Author: Johnson Liu
 Author URI: https://github.com/JourneyBean
 Theme URI: https://github.com/JourneyBean/necopia
-License: GNU General Public License v3 or later
+License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 */
 
