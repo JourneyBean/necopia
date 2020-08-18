@@ -6,6 +6,7 @@
 /**
  * Theme Supports
  * Generated From: https://generatewp.com/theme-support/
+ * Partly from: WordPress/Twenty
  */
 
 // Set content width value based on the theme's design
@@ -85,6 +86,24 @@ function necopia_theme_support()  {
     // Add theme support for Translation
     load_theme_textdomain( 'necopia_theme', 
                            get_template_directory() . '/language' );
+    
+    // Add theme support for selective refresh for widgets.
+    add_theme_support( 'customize-selective-refresh-widgets' );
+
+    // Add support for responsive embeds.
+    add_theme_support( 'responsive-embeds' );
+
+    /**
+     * Starter Content
+     */
+    // if ( is_customize_preview() ) {
+    //     add_theme_support( 'starter-content', [
+    //         'widgets' => [],
+    //         'attatchments' => [],
+    //         'options' => [],
+    //         'nav_menus' => []
+    //     ] );
+    // }
 }
 add_action( 'after_setup_theme', 'necopia_theme_support' );
 
@@ -110,6 +129,19 @@ add_action('init', 'necopia_theme_menu');
 
 }
 
+
+/**
+ * Applying body_open
+ */
+if ( ! function_exists( 'wp_body_open' ) ) {
+
+    /**
+     * Shim for wp_body_open, ensuring backward compatibility with versions of WordPress older than 5.2.
+     */
+    function wp_body_open() {
+        do_action( 'wp_body_open' );
+    }
+}
 
 /**
  * Theme Customizer API Configurations
@@ -369,6 +401,51 @@ function necopia_theme_customize( $wp_customize ) {
 add_action('customize_register', 'necopia_theme_customize');
 
 }
+
+
+/**
+ * Register widget area.
+ *
+ * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
+ */
+// function necopia_widgets_init() {
+//     register_sidebar(
+//         array(
+//             'name'          => __( 'Blog Sidebar', 'twentyseventeen' ),
+//             'id'            => 'sidebar-1',
+//             'description'   => __( 'Add widgets here to appear in your sidebar on blog posts and archive pages.', 'twentyseventeen' ),
+//             'before_widget' => '<section id="%1$s" class="widget %2$s">',
+//             'after_widget'  => '</section>',
+//             'before_title'  => '<h2 class="widget-title">',
+//             'after_title'   => '</h2>',
+//         )
+//     );
+
+//     register_sidebar(
+//         array(
+//             'name'          => __( 'Footer 1', 'twentyseventeen' ),
+//             'id'            => 'sidebar-2',
+//             'description'   => __( 'Add widgets here to appear in your footer.', 'twentyseventeen' ),
+//             'before_widget' => '<section id="%1$s" class="widget %2$s">',
+//             'after_widget'  => '</section>',
+//             'before_title'  => '<h2 class="widget-title">',
+//             'after_title'   => '</h2>',
+//         )
+//     );
+
+//     register_sidebar(
+//         array(
+//             'name'          => __( 'Footer 2', 'twentyseventeen' ),
+//             'id'            => 'sidebar-3',
+//             'description'   => __( 'Add widgets here to appear in your footer.', 'twentyseventeen' ),
+//             'before_widget' => '<section id="%1$s" class="widget %2$s">',
+//             'after_widget'  => '</section>',
+//             'before_title'  => '<h2 class="widget-title">',
+//             'after_title'   => '</h2>',
+//         )
+//     );
+// }
+// add_action( 'widgets_init', 'necopia_widgets_init' );
 
 
 /**
